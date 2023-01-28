@@ -1,0 +1,24 @@
+import pandas as pd
+from sklearn.cluster import KMeans
+
+# Create a list of your numbers
+my_numbers = [
+    [18,10,65,07,81,31],
+    [90,52,18,12,50,53],
+    [39,82,86,41,74,81]
+]
+
+# Create a dataframe from the list of numbers
+df = pd.DataFrame(my_numbers, columns=['col1','col2','col3','col4','col5','col6'])
+
+# Create an instance of the KMeans class
+kmeans = KMeans(n_clusters=3)
+
+# Fit the model to the data
+kmeans.fit(df)
+
+# Get the cluster assignments for each data point
+clusters = kmeans.predict(df)
+
+# Print the cluster assignments
+print(clusters)
